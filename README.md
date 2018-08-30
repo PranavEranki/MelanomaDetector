@@ -34,9 +34,10 @@ Likewise was done for the malign data.
 
 #### 2.2 Preprocessing:
 The following preprocessing tasks are developed for each image:
-2. Image resizing: Transform images to 128x128x3
-3. Crop images: Automatic or manual Crop
-4. Other to define later in order to improve model quality
+
+1. Image resizing: Transform images to 128x128x3
+2. Crop images: Automatic or manual Crop
+3. Other to define later in order to improve model quality
 
 #### 2.3 CNN Model:
 The idea is to develop a CNN model from scratch, and evaluate the performance to set a baseline. 
