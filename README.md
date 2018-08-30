@@ -1,6 +1,26 @@
 # Melanoma Detector
 #### *by Pranav Eranki*  - pranav.eranki@gmail.com
 
+### How to use this project
+
+#### Installation
+* Get the images from [ISIC](https://isic-archive.com).
+* Download all the images (This will take a while).
+* Format the folders so that all the images are in two folders labeled *Benign* and *Malignant* if they are from the benign and malignant folder respectively.
+* Download this project, and unzip all the files into the same directory as the *Benign* and *Malignant* folders.
+* Now, you should have all the .py files and your image folders in the same directory.
+
+#### Flow of execution for reproducing results
+
+1. First, fire up an IDE (this makes the process smooth) - I prefer Spyder from Conda.
+2. Navigate over to the downloaded directory
+3. Execute the imagePrep.py file.
+ * This assumes that you have already done all the necessary steps in the *Installation* section above.
+ * This also will take a while, so be prepared. On average, it takes me about 1 1/2 to 2 hours
+ * If you want to change the number of images desired to process, be my guest. Just please do not change the value *max* in the code to a number higher than 12000 if you have 16GB RAM - this gives a memory error. If you have an even smaller RAM, please change the values as needed according to your judgement.
+
+
+
 ### 1. Project Summary
 The purpose of this project is to create a tool that considering the image of a
 mole, can calculate the probability that the mole indicates the presence of melanoma within that user.
@@ -106,9 +126,16 @@ I have learned so much from this project, including:
 
 ### 6. Issues faced
 
+* Scaling the data properly
+* Saving the scaled images to a folder
+* Tensorflow installation issues on Windows AND Linux
+ * This is a funny story - I literally converted one of my computers to Ubuntu solely to work on tensorflow, and I STILL got import issues.
+* 
+
 ### 7. Current Next Steps
 
-- Validate model
+- Validate model 
+- Try whole process
 - Add web app
   - Add stories about melanoma in beginning of web app
   - Add navbar to web app
@@ -117,7 +144,8 @@ I have learned so much from this project, including:
 - Make a more complex documentation flow with multiple docs
 
 
-### 8. Disclaimer
+
+### Disclaimer
 
 This tool has been designed only for educational purposes to demonstrate the use of Machine Learning tools in the medical field. 
 This tool does not replace advice or evaluation by a medical professional. Nothing in this project should be construed as an attempt to 
