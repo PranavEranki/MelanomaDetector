@@ -66,30 +66,57 @@ probability that the given mole is malign in terms of percentage.
   **3. Android App:** Also if time allows.
   
  ### 3. Tools to Use
+ #### Modules:
  - Tensorflow (GPU High performance computing - NVIDIA)
  - keras
  - Python
  - matplotlib
  - scikit-learn
- - AWS (EC2 - S3)
- - IoS swift + core ML (for possible iOS app)
  - Flask or Django for web
+ 
+#### Platform integration
+ - IoS swift + core ML (for possible iOS app)
  - Android Studio (for possible android model)
  
+#### Development tools
+ - Spyder for writing code
+ - Jupyter notebook for EDA
+ - Git for versioning code
+
 ### 4. Note about documentation
 The documentation for this program is fairly self explanatory.
 
 A lot of the code which is written is fairly documented with comments.
  
-Please keep in mind that if you wish to understand a lot of these topics through the use of the comments, you would need some ML experience.
+Please keep in mind that if you wish to understand a lot of these topics through the use of the comments, you would need some ML experience. The comments are helpful, but do not explain the full extent of the code.
  
- ### 5. Next Steps
+### 5. Learned
 
+This project has been a bitter-sweet mix of compromises, (personal) breakthroughs in my code, and hours spent debugging. The experience gained from this project is genuinely uncomparable to any of the other projects which I have undertaken previously. 
+
+I have learned so much from this project, including:
+* Image manipulation
+* Reading images from a folder
+* Saving images to a folder in a procedural manner
+* How to use Keras to construct a variety of different CNNs
+* How to format documentation for a project in an official manner
+* How to use .h5 files
+
+
+### 6. Issues faced
+
+### 7. Current Next Steps
+
+- Validate model
+- Add web app
+  - Add stories about melanoma in beginning of web app
+  - Add navbar to web app
 - Create Ios App
 - Create Android App
-- Improve model with additional data
+- Make a more complex documentation flow with multiple docs
 
-### 6. Disclaimer
+
+### 8. Disclaimer
 
 This tool has been designed only for educational purposes to demonstrate the use of Machine Learning tools in the medical field. 
 This tool does not replace advice or evaluation by a medical professional. Nothing in this project should be construed as an attempt to 
