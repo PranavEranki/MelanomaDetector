@@ -1,6 +1,7 @@
 # Do not track these folders
 skincancerproject/__pycache__
 skincancerproject/.ipynb_checkpoints
+# These are data folders and are hence HUGE (>10 GB on average)
 skincancerproject/Benign
 skincancerproject/data_scaled
 skincancerproject/data_scaled_validation
