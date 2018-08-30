@@ -15,7 +15,7 @@
 1. First, fire up an IDE (this makes the process smooth) - I prefer Spyder from Conda.
 2. Navigate over to the downloaded directory
 3. Execute the imagePrep.py file.
- * This assumes that you have already done all the necessary steps in the *Installation* section above.
+   3a. This assumes that you have already done all the necessary steps in the *Installation* section above.
  * This also will take a while, so be prepared. On average, it takes me about 1 1/2 to 2 hours
  * If you want to change the number of images desired to process, be my guest. Just please do not change the value *max* in the code to a number higher than 12000 if you have 16GB RAM - this gives a memory error. If you have an even smaller RAM, please change the values as needed according to your judgement.
 
