@@ -1,0 +1,7 @@
+# Do not track these folders
+skincancerproject/__pycache__
+skincancerproject/.ipynb_checkpoints
+skincancerproject/Benign
+skincancerproject/data_scaled
+skincancerproject/data_scaled_validation
+skincancerproject/Malignant
