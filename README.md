@@ -18,7 +18,7 @@
 3. Execute the imagePrep.py file.
    - This assumes that you have already done all the necessary steps in the *Installation* section above.
    - This also will take a while, so be prepared. On average, it takes me about 1 1/2 to 2 hours
-   - If you want to change the number of images desired to process, be my guest. Just please do not change the value *max* in the code to a number higher than 12000 if you have 16GB RAM - this gives a memory error. If you have an even smaller RAM, please change the values as needed according to your judgement.
+   - If you want to change the number of images desired to process, be my guest. Go into the file 'moleimages.py' and change the valuie of the variable *max* inside the *resize_bulk* function. Just please do not change the value to a number higher than 12000 if you have 16GB RAM - this gives a memory error. If you have an even smaller RAM, please change the values as needed according to your judgement.
 4. Run the topVGG.py file to train the optimal VGG Model for the image classification.
 
 __To be continued__
