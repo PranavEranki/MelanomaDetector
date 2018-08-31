@@ -24,7 +24,8 @@
    - Change the hyperparameters epochs, batch size, and learning rate as necessary.
    - Change the nb_train_samples and nb_validation_samples to match the number of samples in your train and validation folders
    - Save and compile the full program.
-   - Please keep in mind that with 1000 images of each type, a learning rate of 0.001, 10 epochs, and a batch_size of 16, the training of       the program took a little under an hour
+   - Please keep in mind that with 1000 images of each type, a learning rate of 0.001, 10 epochs, and a batch_size of 16, the training of the program took a little under an hour
+6. If you want to test your model, run the testModel.py file
 
 __To be continued__
 
@@ -147,6 +148,9 @@ I have learned so much from this project, including:
 * Training the full VGG model effectively 
    * With 10,000 images, 100 epochs, and a small learning rate, the model was projected to take about 50 hours
    * Used substantially less images, 10 epochs, and a larger learning rate - model was projected to take about 1 hour
+* Saving the full model effectively to be used in testing
+   * Used json to convert model and weights then get them again when running testModel.py
+   * Tried many other formats, none worked
    
 ### 7. Current Next Steps
 
