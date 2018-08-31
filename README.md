@@ -131,7 +131,7 @@ I have learned so much from this project, including:
 * Scaling the data properly
 * Saving the scaled images to a folder
 * Tensorflow installation issues on Windows AND Linux
- * This is a funny story - I literally converted one of my computers to Ubuntu solely to work on tensorflow, and I STILL got import issues.
+   * This is a funny story - I literally converted one of my computers to Ubuntu solely to work on tensorflow, and I STILL got import issues.
 
 ### 7. Current Next Steps
 
