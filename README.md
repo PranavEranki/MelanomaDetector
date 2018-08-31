@@ -129,10 +129,16 @@ I have learned so much from this project, including:
 ### 6. Issues faced
 
 * Scaling the data properly
+   * Eventually, I utilized a lot of documentation on skimage to save images
 * Saving the scaled images to a folder
+   * This took many tries to get the image saving to work
+   * A lot of stack overflow was used
 * Tensorflow installation issues on Windows AND Linux
    * This is a funny story - I literally converted one of my computers to Ubuntu solely to work on tensorflow, and I STILL got import issues.
+   * Solved this by following many different threads on github until I found a fix.
 * Saving bottleneck features to a byte format and reading from same format
+   * Solved by removing feature saving and implementing all VGG16 model training in 1 function
+   * Then, saved the model weights of the best VGG16 implemented to a folder for later use
 
 ### 7. Current Next Steps
 
