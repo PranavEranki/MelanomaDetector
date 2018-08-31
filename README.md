@@ -150,8 +150,7 @@ I have learned so much from this project, including:
    
 ### 7. Current Next Steps
 
-- Validate model 
-- Try whole process
+- Test model on diff images
 - Add web app
   - Add stories about melanoma in beginning of web app
   - Add navbar to web app
