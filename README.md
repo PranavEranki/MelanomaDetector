@@ -20,6 +20,11 @@
    - This also will take a while, so be prepared. On average, it takes me about 1 1/2 to 2 hours
    - If you want to change the number of images desired to process, be my guest. Go into the file 'moleimages.py' and change the valuie of the variable *max* inside the *resize_bulk* function. Just please do not change the value to a number higher than 12000 if you have 16GB RAM - this gives a memory error. If you have an even smaller RAM, please change the values as needed according to your judgement.
 4. Run the topVGG.py file to train the optimal VGG Model for the image classification.
+5. Run the FullVGG.py file to get the best full CNN:
+   - Change the hyperparameters epochs, batch size, and learning rate as necessary.
+   - Change the nb_train_samples and nb_validation_samples to match the number of samples in your train and validation folders
+   - Save and compile the full program.
+   - Please keep in mind that with 1000 train, 1000 test, a learning rate of 0.001, 10 epochs, and a batch_size of 16, the training of       the program took a little under an hour
 
 __To be continued__
 
@@ -139,7 +144,10 @@ I have learned so much from this project, including:
 * Saving bottleneck features to a byte format and reading from same format
    * Solved by removing feature saving and implementing all VGG16 model training in 1 function
    * Then, saved the model weights of the best VGG16 implemented to a folder for later use
-
+* Training the full VGG model effectively 
+   * With 10,000 images, 100 epochs, and a small learning rate, the model was projected to take about 50 hours
+   * Used substantially less images, 10 epochs, and a larger learning rate - model was projected to take about 1 hour
+   
 ### 7. Current Next Steps
 
 - Validate model 
