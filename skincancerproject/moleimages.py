@@ -27,7 +27,7 @@ class MoleImages():
         X = []
         image_list = glob.glob(self.dir) #Getting images we need to resize
         n_images = len(image_list)
-        most = 10000
+        most = 1000
         if n_images > most:
             n_images = most
             image_list = image_list[:n_images]
@@ -45,20 +45,23 @@ class MoleImages():
 
     def load_test_images(self, dir_b, dir_m):
         X = []
-        image_list_b = glob.glob(dir_b + '/*.png')
+        image_list_b = glob.glob(os.path.join(os.getcwd(), dir_b + '/*.png'))
+        
         n_images_b = len(image_list_b)
         print('Loading {} images of class benign:'.format(n_images_b))
         for i, imgfile in enumerate(image_list_b):
             print('Loading image {} of {}'.format(i+1, n_images_b))
             img = io.imread(imgfile)
             X.append(img)
-        image_list_m = glob.glob(dir_m + '/*.png')
+        image_list_m = glob.glob(os.path.join(os.getcwd(), dir_m + '/*.png'))
+        
         n_images_m = len(image_list_m)
         print('Loading {} images of class benign:'.format(n_images_m))
         for i, imgfile in enumerate(image_list_m):
             print('Loading image {} of {}'.format(i+1, n_images_m))
             img = io.imread(imgfile)
             X.append(img)
+        
         y = np.hstack((np.zeros(n_images_b), np.ones(n_images_m)))
 
         return np.array(X), y.reshape(len(y),1)

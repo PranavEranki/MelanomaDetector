@@ -6,21 +6,26 @@ from keras.models import Sequential
 from keras.layers import Dropout, Flatten, Dense
 from keras.callbacks import EarlyStopping, ModelCheckpoint
 import sys
-
+import os
 
 # path to the model weights files.
 #weights_path = '../keras/examples/vgg16_weights.h5'
-top_model_weights_path = 'models/bottleneck_fc_model.h5'
+top_model_weights_path = os.path.join(os.getcwd(),'models/bottleneck_fc_model.h5')
 # dimensions of our images.
 img_width, img_height = 128, 128
 
-train_data_dir = 'data_scaled/'
-validation_data_dir = 'data_scaled_validation/'
-nb_train_samples = 1763
-nb_validation_samples = 194
-epochs = 100
-batch_size = 16
+train_data_dir = os.path.join(os.getcwd(), 'data_scaled/')
+validation_data_dir = os.path.join(os.getcwd(), 'data_scaled_validation/')
 
+# Please change these values if you change the code
+nb_train_samples = 1000
+nb_validation_samples = 1000
+
+# Change epochs and batch size according to the number of training samples you have!
+# More data = more epochs and slightly larger batch size
+epochs = 30
+batch_size = 50
+learning_rate = 0.0005
 # build the VGG16 network
 model = applications.VGG16(weights='imagenet', include_top=False,
                            input_shape=(128, 128, 3))
@@ -48,9 +53,9 @@ model = Model(input= model.input, output= top_model(model.output))
 #    layer.trainable = False
 
 # compile the model with a SGD/momentum optimizer
-# and a very slow learning rate.
+# and a somewhat slow learning rate.
 model.compile(loss='binary_crossentropy',
-              optimizer=optimizers.SGD(lr=1e-4, momentum=0.9),
+              optimizer=optimizers.SGD(lr=learning_rate, momentum=0.9),
               metrics=['accuracy'])
 
 # prepare data augmentation configuration
@@ -75,12 +80,15 @@ validation_generator = test_datagen.flow_from_directory(
     batch_size=batch_size,
     class_mode='binary')
 
+'''
 # fine-tune the model
-best_model_VA = ModelCheckpoint('BM_VA_'+sys.argv[1],monitor='val_acc',
+best_model_VA = ModelCheckpoint('BM_VA_1',monitor='val_acc',
                                 mode = 'max', verbose=1, save_best_only=True)
-best_model_VL = ModelCheckpoint('BM_VL_'+sys.argv[1],monitor='val_loss',
+
+best_model_VL = ModelCheckpoint('BM_VL_2',monitor='val_loss',
                                 mode = 'min', verbose=1, save_best_only=True)
 
+'''
 
 model.fit_generator(
     train_generator,
@@ -89,5 +97,12 @@ model.fit_generator(
     validation_data=validation_generator,
     nb_val_samples=nb_validation_samples, callbacks=[best_model_VA,best_model_VL])
 
-print('saving model...',sys.argv[1])
-model.save(sys.argv[1])
+
+print('saving model to ', os.path.join(os.getcwd(),"models"))
+model_to_json = model.to_json()
+with open(os.path.join(os.getcwd(),"models/FinalModel.json"), 'w') as json_file:
+    json_file.write(model_to_json)
+
+model.save_weights(os.path.join(os.getcwd(), "models/FinalModel.h5"))
+print("Model has been successfully saved to disk.")
+
