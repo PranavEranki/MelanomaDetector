@@ -24,7 +24,7 @@
    - Change the hyperparameters epochs, batch size, and learning rate as necessary.
    - Change the nb_train_samples and nb_validation_samples to match the number of samples in your train and validation folders
    - Save and compile the full program.
-   - Please keep in mind that with 1000 train, 1000 test, a learning rate of 0.001, 10 epochs, and a batch_size of 16, the training of       the program took a little under an hour
+   - Please keep in mind that with 1000 images of each type, a learning rate of 0.001, 10 epochs, and a batch_size of 16, the training of       the program took a little under an hour
 
 __To be continued__
 
