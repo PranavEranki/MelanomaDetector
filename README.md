@@ -112,8 +112,10 @@ probability that the given mole is malign in terms of percentage.
  - Spyder for writing code
  - Jupyter notebook for EDA
  - Git for versioning code
+ - The ever-helpful StackOverflow community
 
 ### 4. Note about documentation
+
 The documentation for this program is fairly self explanatory.
 
 A lot of the code which is written is fairly documented with comments.
@@ -126,8 +128,7 @@ This project has been a bitter-sweet mix of compromises, (personal) breakthrough
 
 I have learned so much from this project, including:
 * Image manipulation
-* Reading images from a folder
-* Saving images to a folder in a procedural manner
+* Reading/saving images from/to a folder in a procedural manner
 * How to use Keras to construct a variety of different CNNs
 * How to format documentation for a project in an official manner
 * How to use .h5 files
@@ -152,7 +153,11 @@ I have learned so much from this project, including:
 * Saving the full model effectively to be used in testing
    * Used json to convert model and weights then get them again when running testModel.py
    * Tried many other formats, none worked
-   
+* Utilizing Conda environment to migrate project to Windows
+    * Problems with using opencv
+    * Used skimage.io instead
+    * Needed to rewrite image saving code for skimage
+
 ### 7. Current Next Steps
 
 - Test model on diff images

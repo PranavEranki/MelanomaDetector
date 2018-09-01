@@ -7,7 +7,8 @@ from skimage.transform import resize
 import glob
 import h5py
 import os
-import cv2
+
+
 '''
 This is the helper method for image prep
 '''
@@ -27,7 +28,7 @@ class MoleImages():
         X = []
         image_list = glob.glob(self.dir) #Getting images we need to resize
         n_images = len(image_list)
-        most = 1000
+        most = 10
         if n_images > most:
             n_images = most
             image_list = image_list[:n_images]
@@ -118,11 +119,12 @@ class MoleImages():
                 
             # Saving the image to the proper directory
             current_dir = os.path.join(current_dir, filename)
-            cv2.imwrite(current_dir, img)
+            
+            io.imsave(current_dir, img)
             
 
 
 if __name__ == '__main__':
-    
-    benign = MoleImages()
-    X = benign.load_h5('benigns.h5','benign')
+    pass
+    #benign = MoleImages()
+    #X = benign.load_h5('benigns.h5','benign')
