@@ -28,7 +28,7 @@ class MoleImages():
         X = []
         image_list = glob.glob(self.dir) #Getting images we need to resize
         n_images = len(image_list)
-        most = 10
+        most = 2000
         if n_images > most:
             n_images = most
             image_list = image_list[:n_images]
