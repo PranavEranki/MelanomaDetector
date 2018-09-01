@@ -23,9 +23,9 @@ nb_validation_samples = 1000
 
 # Change epochs and batch size according to the number of training samples you have!
 # More data = more epochs and slightly larger batch size
-epochs = 30
-batch_size = 50
-learning_rate = 0.0005
+epochs = 50
+batch_size = 16
+learning_rate = 0.0001
 # build the VGG16 network
 model = applications.VGG16(weights='imagenet', include_top=False,
                            input_shape=(128, 128, 3))
