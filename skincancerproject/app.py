@@ -3,14 +3,18 @@ from flask import Flask, request, render_template, redirect, url_for, flash
 from flask import send_from_directory
 from werkzeug.utils import secure_filename
 from keras.models import load_model
-from moleimages import MoleImages
 import tensorflow as tf
 import random
+from keras.models import model_from_json
+from moleimages import MoleImages
 
+UPLOAD_FOLDER = os.path.join(os.getcwd(),'tmp')
+#Making sure we have a tmp folder
+if not (os.path.exists(UPLOAD_FOLDER)):
+    os.makedirs(UPLOAD_FOLDER)
 
-UPLOAD_FOLDER = 'tmp'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
-
+#Config
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 3 * 2048 * 2048
@@ -28,6 +32,7 @@ app.wsgi_app = SharedDataMiddleware(app.wsgi_app, {
 
 @app.route('/')
 def index():
+    #return 'Hello!'
     return render_template('index.html')
 
 @app.route('/upload', methods=['GET', 'POST'])
@@ -53,10 +58,10 @@ def upload_file():
             #                         filename=filename))
     return render_template('upload.html')  #upload
 
-# @app.route('/uploads/<filename>')
-# def uploaded_file(filename):
-#     return send_from_directory(app.config['UPLOAD_FOLDER'],
-#                                filename)
+@app.route('/uploads/<filename>')
+def uploaded_file(filename):
+     return send_from_directory(app.config['UPLOAD_FOLDER'],
+                               filename)
 
 @app.route('/submit')
 def submit():
@@ -97,6 +102,12 @@ def predict(filename):
 
 if __name__ == '__main__':
     global model
-    model = load_model('models/BM_VA_VGG_FULL_DA.hdf5')
+
+    json_file = open(os.path.join(os.getcwd(), "models/FinalModel.json"))
+    loaded_model_j = json_file.read()
+    json_file.close()
+    model = model_from_json(loaded_model_j)
+
     graph = tf.get_default_graph()
-    app.run(host='0.0.0.0', port=7000, debug=True)
+
+    app.run(debug=True)
