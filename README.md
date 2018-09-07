@@ -125,7 +125,7 @@ I have learned so much from this project, including:
 * How to use Keras to construct a variety of different CNNs
 * How to format documentation for a project in an official manner
 * How to use .h5 files
-
+* How to use Flask
 
 ### 6. Issues faced
 
