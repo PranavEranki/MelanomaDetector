@@ -6,7 +6,9 @@ from keras.models import load_model
 import tensorflow as tf
 import random
 from keras.models import model_from_json
-#from moleimages import MoleImages
+from moleimages import MoleImages
+
+
 
 UPLOAD_FOLDER = os.path.join(os.getcwd(),'tmp')
 #Making sure we have a tmp folder
