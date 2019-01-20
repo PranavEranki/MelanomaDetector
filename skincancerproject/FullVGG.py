@@ -105,4 +105,3 @@ with open(os.path.join(os.getcwd(),"models/FinalModel.json"), 'w') as json_file:
 
 model.save_weights(os.path.join(os.getcwd(), "models/FinalModel.h5"))
 print("Model has been successfully saved to disk.")
-
