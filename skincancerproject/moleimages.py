@@ -7,7 +7,8 @@ from skimage.transform import resize
 import glob
 import h5py
 import os
-import cv2
+
+
 '''
 This is the helper method for image prep
 '''
@@ -27,7 +28,7 @@ class MoleImages():
         X = []
         image_list = glob.glob(self.dir) #Getting images we need to resize
         n_images = len(image_list)
-        most = 1000
+        most = 2000
         if n_images > most:
             n_images = most
             image_list = image_list[:n_images]
@@ -37,16 +38,16 @@ class MoleImages():
             print('Resizing image {} of {}'.format(i+1, n_images))
             img = io.imread(imgfile)
             img = resize(img, self.size)
-            
+
             X.append(img)
-            
-                
+
+
         return np.array(X)
 
     def load_test_images(self, dir_b, dir_m):
         X = []
         image_list_b = glob.glob(os.path.join(os.getcwd(), dir_b + '/*.png'))
-        
+
         n_images_b = len(image_list_b)
         print('Loading {} images of class benign:'.format(n_images_b))
         for i, imgfile in enumerate(image_list_b):
@@ -54,14 +55,14 @@ class MoleImages():
             img = io.imread(imgfile)
             X.append(img)
         image_list_m = glob.glob(os.path.join(os.getcwd(), dir_m + '/*.png'))
-        
+
         n_images_m = len(image_list_m)
         print('Loading {} images of class benign:'.format(n_images_m))
         for i, imgfile in enumerate(image_list_m):
             print('Loading image {} of {}'.format(i+1, n_images_m))
             img = io.imread(imgfile)
             X.append(img)
-        
+
         y = np.hstack((np.zeros(n_images_b), np.ones(n_images_m)))
 
         return np.array(X), y.reshape(len(y),1)
@@ -96,7 +97,7 @@ class MoleImages():
             return hf[dataset][:]
 
     def save_png(self, matrix, dir, tag='img', format='png'):
-        
+
         # Saving the picture to the directory
         for i, img in enumerate(matrix):
             current_dir = os.getcwd()
@@ -107,22 +108,16 @@ class MoleImages():
             else:
                 current_dir = (os.path.join(current_dir, dir))
                 filename = tag + str(i) + '.' + format
-                
+
             # this is some verbosity which I implemented for bug testing - not important
             print('Saving file {}'.format(filename))
             print(current_dir)
-            
+
             # Making rhe dir benign / malign for data scaled if not present
             if not os.path.exists(current_dir):
                 os.makedirs(current_dir)
-                
+
             # Saving the image to the proper directory
             current_dir = os.path.join(current_dir, filename)
-            cv2.imwrite(current_dir, img)
-            
 
-
-if __name__ == '__main__':
-    
-    benign = MoleImages()
-    X = benign.load_h5('benigns.h5','benign')
+            io.imsave(current_dir, img)

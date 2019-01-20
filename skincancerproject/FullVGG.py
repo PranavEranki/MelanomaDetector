@@ -23,7 +23,7 @@ nb_validation_samples = 1000
 
 # Change epochs and batch size according to the number of training samples you have!
 # More data = more epochs and slightly larger batch size
-epochs = 50
+epochs = 75
 batch_size = 16
 learning_rate = 0.0001
 # build the VGG16 network
@@ -95,7 +95,7 @@ model.fit_generator(
     samples_per_epoch=nb_train_samples,
     epochs=epochs,
     validation_data=validation_generator,
-    nb_val_samples=nb_validation_samples, callbacks=[best_model_VA,best_model_VL])
+    nb_val_samples=nb_validation_samples)
 
 
 print('saving model to ', os.path.join(os.getcwd(),"models"))

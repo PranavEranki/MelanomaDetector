@@ -14,7 +14,7 @@ train_data_dir = 'data_scaled'
 validation_data_dir = 'data_scaled_validation'
 nb_train_samples = 1760 #1763
 nb_validation_samples = 192 #194
-epochs = 50
+epochs = 75
 batch_size = 16
 
 def train_top_model():
